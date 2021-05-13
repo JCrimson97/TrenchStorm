@@ -18,5 +18,16 @@ for(const file of readdirSync('./commands/')) {
 
 
 // Event Controller
+for(const file of readdirSync('./events/')) {
+    if(file.endsWith('.js')) {
+        let fileName = file.substring(0, file.length - 3);
+        let fileContents = require(`./events/${file}`);
 
-client.login(Config.TOKEN).then(r => console.log("Login successful."));
+        client.on(fileName, fileContents.bind(null, client));
+        delete require.cache[require.resolve(`./events/${file}`)];
+    }
+}
+
+client.login(Config.TOKEN).then(() => console.log("Login successful.")).catch((e) => {
+    console.log(`Login error: ${e}`);
+});
