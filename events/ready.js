@@ -1,13 +1,18 @@
-module.exports = async(client) => {
+module.exports = (client) => {
 
-    await console.log("Ready Event");
+    console.log("Ready Event");
 
-    await client.user.setPresence({
-        status: "dnd",
-        game: {
-            name: "Code",
-            type: "WATCHING"
+    client.user.setPresence(
+        {
+            status: "online",
+            game:
+                {
+                    name: "Code",
+                    url: null,
+                    type: "WATCHING"
+                }
         }
-    });
+    );
+
 
 }

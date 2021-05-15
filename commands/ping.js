@@ -1,9 +1,15 @@
-module.exports = async(client, message, Discord, args) => {
-    let ping = client.ws.ping;
+module.exports = {
+    name: 'ping',
+    execute(client, message, args, Discord) {
+        console.log("Pong!")
 
-    const pingEmbed = new Discord.MessageEmbed()
-        .setTitle("Pong!")
-        .setDescription(`My ping is ${ping}`);
+        let ping = client.ws.ping;
 
-    await message.channel.send({embed: pingEmbed});
-}
+        const pingEmbed = new Discord.MessageEmbed()
+            .setTitle("🏓| Pong!")
+            .setDescription(`My ping is of about ${ping}ms.`)
+            .setColor("RANDOM");
+
+        message.channel.send({embed: pingEmbed});
+    },
+};
