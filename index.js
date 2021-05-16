@@ -42,6 +42,10 @@ for(const file of readdirSync('./events/')) {
     }
 }
 
+if(!client.config.TOKEN) {
+    client.config.TOKEN = process.env.TOKEN;
+}
+
 client.login(client.config.TOKEN).then(() => console.log("Login successful.")).catch((e) => {
     console.log(`Login error: ${e}`);
 });
