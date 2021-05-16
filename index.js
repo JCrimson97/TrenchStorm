@@ -7,8 +7,10 @@ client.commands = new Discord.Collection();
 try {
     client.config = require('./config');
 } catch (e) {
-    client.config.TOKEN = process.env.TOKEN;
-    client.config.PREFIX = "t/"
+    client.config = {
+        TOKEN:"ODQyMTc2NDgyMDcxMDE5NTMw.YJxf-A._eJrepi3W0ohpkiZR1GIHJ087vg",
+        PREFIX:"t/"
+    }
     console.log("Error was " + e)
 };
 
