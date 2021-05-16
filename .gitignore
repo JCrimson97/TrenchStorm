@@ -8,7 +8,6 @@ yarn-error.log*
 lerna-debug.log*
 
 # Private
-config.js
 .idea
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
