@@ -8,6 +8,7 @@ try {
     client.config = require('./config');
 } catch (e) {
     client.config = {
+        TOKEN:process.env.TOKEN,
         PREFIX:"t/"
     }
     console.log("Error was " + e)
