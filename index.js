@@ -6,11 +6,11 @@ let { readdirSync } = require('fs');
 client.commands = new Discord.Collection();
 try {
     client.config = require('./config');
-} catch (e => {
+} catch (e {
     client.config.TOKEN = process.env.TOKEN;
     client.config.PREFIX = "t/"
     console.log("Error was " + e)
-});
+};
 
 const commandFiles = readdirSync('./commands').filter(file => file.endsWith('.js'));
 
