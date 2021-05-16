@@ -3,8 +3,14 @@ const client = new Discord.Client();
 
 let { readdirSync } = require('fs');
 
-client.config = require('./config');
 client.commands = new Discord.Collection();
+try {
+    client.config = require('./config');
+} catch (e => {
+    client.config.TOKEN = process.env.TOKEN;
+    client.config.PREFIX = "t/"
+    console.log("Error was " + e)
+});
 
 const commandFiles = readdirSync('./commands').filter(file => file.endsWith('.js'));
 
@@ -42,9 +48,6 @@ for(const file of readdirSync('./events/')) {
     }
 }
 
-if(!client.config.TOKEN) {
-    client.config.TOKEN = process.env.TOKEN;
-}
 
 client.login(client.config.TOKEN).then(() => console.log("Login successful.")).catch((e) => {
     console.log(`Login error: ${e}`);
