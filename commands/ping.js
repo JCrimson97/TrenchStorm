@@ -6,7 +6,7 @@ module.exports = {
         let ping = client.ws.ping;
 
         const pingEmbed = new Discord.MessageEmbed()
-            .setTitle("🏓| Pong!")
+            .setTitle("🏓 | Pong!")
             .setDescription(`My ping is of about ${ping}ms.`)
             .setColor("RANDOM");
 
